@@ -1,0 +1,106 @@
+Started by upstream project "build_job" build number 6
+originally caused by:
+ Started by user Hudson Pierce
+Running as SYSTEM
+[EnvInject] - Loading node environment variables.
+Building in workspace /Users/hudsonpierce/.jenkins/workspace/run_unit_tests
+The recommended git tool is: NONE
+No credentials specified
+Wiping out workspace first.
+Cloning the remote Git repository
+Cloning repository https://github.com/eddyfrank/ci-challenge_hudson-pierce.git
+ > git init /Users/hudsonpierce/.jenkins/workspace/run_unit_tests # timeout=10
+Fetching upstream changes from https://github.com/eddyfrank/ci-challenge_hudson-pierce.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.24.3 (Apple Git-128)'
+ > git fetch --tags --force --progress -- https://github.com/eddyfrank/ci-challenge_hudson-pierce.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/eddyfrank/ci-challenge_hudson-pierce.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse origin/dev-branch^{commit} # timeout=10
+Checking out Revision 0602afa9bc4bf4bc6395dc4e6987a37c406f04da (origin/dev-branch)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 0602afa9bc4bf4bc6395dc4e6987a37c406f04da # timeout=10
+Commit message: "switch to use main instead of dev branch"
+ > git rev-list --no-walk 02181d0f0deebdfb35e12b364f902de4f7b58649 # timeout=10
+Run condition [Current build status] enabling prebuild for step [Execute shell]
+[run_unit_tests] $ /bin/sh -xe /var/folders/9l/w1nf7l1n3bb_k5s5rmwz0r3h0000gn/T/jenkins15740359888737538979.sh
++ bash scripts/run_unit_tests.sh
+> Task :clean
+> Task :app:clean
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:compileDebugAidl NO-SOURCE
+> Task :app:compileDebugRenderscript NO-SOURCE
+> Task :app:generateDebugBuildConfig
+> Task :app:checkDebugAarMetadata
+> Task :app:generateDebugResValues
+> Task :app:generateDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:preDebugUnitTestBuild UP-TO-DATE
+> Task :app:javaPreCompileDebug
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :app:processDebugUnitTestJavaRes NO-SOURCE
+> Task :app:preReleaseBuild UP-TO-DATE
+> Task :app:compileReleaseAidl NO-SOURCE
+> Task :app:compileReleaseRenderscript NO-SOURCE
+> Task :app:javaPreCompileDebugUnitTest
+> Task :app:generateReleaseBuildConfig
+> Task :app:checkReleaseAarMetadata
+> Task :app:generateReleaseResValues
+> Task :app:generateReleaseResources
+> Task :app:mergeDebugResources
+> Task :app:createReleaseCompatibleScreenManifests
+> Task :app:extractDeepLinksRelease
+> Task :app:processReleaseMainManifest
+> Task :app:processReleaseManifest
+> Task :app:preReleaseUnitTestBuild UP-TO-DATE
+> Task :app:javaPreCompileRelease
+> Task :app:javaPreCompileReleaseUnitTest
+> Task :app:processReleaseManifestForPackage
+> Task :app:processReleaseJavaRes NO-SOURCE
+> Task :app:processReleaseUnitTestJavaRes NO-SOURCE
+> Task :app:processDebugManifestForPackage
+> Task :app:mergeReleaseResources
+> Task :app:processDebugResources
+> Task :app:compileDebugKotlin
+> Task :app:compileDebugJavaWithJavac
+> Task :app:bundleDebugClasses
+> Task :app:processReleaseResources
+> Task :app:compileReleaseKotlin
+> Task :app:compileReleaseJavaWithJavac
+> Task :app:bundleReleaseClasses
+> Task :app:compileDebugUnitTestKotlin
+> Task :app:compileDebugUnitTestJavaWithJavac NO-SOURCE
+
+> Task :app:testDebugUnitTest
+
+io.scanbot.hiring.qademo.ExampleUnitTest > addition_isCorrect FAILED
+    java.lang.AssertionError at ExampleUnitTest.kt:15
+
+1 test completed, 1 failed
+
+> Task :app:testDebugUnitTest FAILED
+34 actionable tasks: 34 executed
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:testDebugUnitTest'.
+> There were failing tests. See the report at: file:///etc/app_code/app/build/reports/tests/testDebugUnitTest/index.html
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 21s
+[Current build status] check if current [SUCCESS] is worse or equals then [FAILURE] and better or equals then [UNSTABLE]
+Run condition [Current build status] preventing perform for step [Execute shell]
+Recording test results
+[Checks API] No suitable checks publisher found.
+Build step 'Publish JUnit test result report' changed build result to UNSTABLE
+Finished: UNSTABLE

@@ -1,0 +1,15 @@
+certifi==2020.12.5
+chardet==4.0.0
+fasteners==0.16
+idna==2.10
+jenkins-job-builder==3.8.0
+Jinja2==2.11.3
+MarkupSafe==1.1.1
+multi-key-dict==2.0.3
+pbr==5.5.1
+python-jenkins==1.7.0
+PyYAML==5.4.1
+requests==2.25.1
+six==1.15.0
+stevedore==3.3.0
+urllib3==1.26.3

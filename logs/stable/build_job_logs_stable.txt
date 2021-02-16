@@ -1,0 +1,182 @@
+Started by user Hudson Pierce
+Running as SYSTEM
+[EnvInject] - Loading node environment variables.
+Building in workspace /Users/hudsonpierce/.jenkins/workspace/build_job
+The recommended git tool is: NONE
+No credentials specified
+Wiping out workspace first.
+Cloning the remote Git repository
+Cloning repository https://github.com/eddyfrank/ci-challenge_hudson-pierce.git
+ > git init /Users/hudsonpierce/.jenkins/workspace/build_job # timeout=10
+Fetching upstream changes from https://github.com/eddyfrank/ci-challenge_hudson-pierce.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.24.3 (Apple Git-128)'
+ > git fetch --tags --force --progress -- https://github.com/eddyfrank/ci-challenge_hudson-pierce.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/eddyfrank/ci-challenge_hudson-pierce.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse origin/dev-branch^{commit} # timeout=10
+Checking out Revision 4ae8397c129f693b4ab3cfe0a5ff7da7b09b3c3b (origin/dev-branch)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 4ae8397c129f693b4ab3cfe0a5ff7da7b09b3c3b # timeout=10
+Commit message: "add environment variables back"
+ > git rev-list --no-walk 4ae8397c129f693b4ab3cfe0a5ff7da7b09b3c3b # timeout=10
+Run condition [Current build status] enabling prebuild for step [Execute shell]
+[build_job] $ /bin/sh -xe /var/folders/9l/w1nf7l1n3bb_k5s5rmwz0r3h0000gn/T/jenkins11495015004169048775.sh
++ bash scripts/build.sh
+#1 [internal] load build definition from Dockerfile
+#1 sha256:61e9c4633418900d9789aa623386d93c70ff0d08b6951218b38a602d0a67df9a
+#1 transferring dockerfile: 1.23kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 sha256:a757c1a7baf98ff131cc1053218e1298d56c9b52896b8217d32e300ffbf436d9
+#2 transferring context: 2B 0.0s done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/ubuntu:18.04
+#3 sha256:ae46bbb1b755529d0da663ca0256a22acd7c9fe21844946c149800baa67c4e4b
+#3 DONE 0.9s
+
+#4 [1/7] FROM docker.io/library/ubuntu:18.04@sha256:ea188fdc5be9b25ca048f1e882b33f1bc763fb976a8a4fea446b38ed0efcbeba
+#4 sha256:380ad6eb2e08b8465b14619f431b23129b86ba446c91de2dee5acc020162e6a6
+#4 DONE 0.0s
+
+#7 [4/7] RUN mkdir -p /usr/local/android-sdk
+#7 sha256:db198682c756ae30c88e17adb800c28c191237761e5582b302809c35a9c66a72
+#7 CACHED
+
+#5 [2/7] RUN apt-get update     && apt-get install curl -y     && apt-get install unzip -y
+#5 sha256:e1577090ce140a3d50f1fb87902d1123a189d1d47d7a3c1e60352f20226440e7
+#5 CACHED
+
+#8 [5/7] RUN cd /usr/local/android-sdk 	&& curl https://dl.google.com/android/repository/commandlinetools-linux-6858069_latest.zip -o cmd_line_tools.zip   	&& unzip cmd_line_tools.zip 	&& rm cmd_line_tools.zip
+#8 sha256:164a57bd81e16502038dae3edb65a5af6edca85ec07d3e4e533ff1629bc2c688
+#8 CACHED
+
+#9 [6/7] RUN /usr/local/android-sdk/cmdline-tools/bin/sdkmanager --sdk_root=/usr/local/android-sdk --update
+#9 sha256:14081ef029fee5c2ae96a8dfe0118d76a96323320694b8d2b3162b703f126e90
+#9 CACHED
+
+#6 [3/7] RUN curl -jkL -H "Cookie: oraclelicense=accept-securebackup-cookie" https://download.oracle.com/otn-pub/java/jdk/15.0.2%2B7/0d1cfde4252546c6931946de8db48ee2/jdk-15.0.2_linux-x64_bin.tar.gz -o jdk.tar.gz     && tar -xzvf jdk.tar.gz 	&& rm jdk.tar.gz 	&& mkdir -p /opt/java 	&& mv jdk-* /opt/java/openjdk
+#6 sha256:e7e02fc41070eb419cf00b19cf33d6747618f3511a3be8f7c3c0f6222b311602
+#6 CACHED
+
+#10 [7/7] RUN	YES | /usr/local/android-sdk/cmdline-tools/bin/sdkmanager --sdk_root=/usr/local/android-sdk --licenses
+#10 sha256:4bc58fafffe156743cf9aff218d2992fb556e1a30726640fe2181b53734b2a36
+#10 CACHED
+
+#11 exporting to image
+#11 sha256:e8c613e07b0b7ff33893b694f7759a10d42e180f2b4dc349fb57dc6b71dcab00
+#11 exporting layers done
+#11 writing image sha256:fd6e878b5045fd55120705f92c609d7597e992bd559a47044dd486b512148b7c done
+#11 naming to docker.io/library/ci-project:v1 done
+#11 DONE 0.0s
+Cloning into 'ci-android-demo-app_hudson-pierce'...
+df5dd83a1ac22033222577fa5446f6974f49b439c8737141c944df7f14460098
+Downloading https://services.gradle.org/distributions/gradle-6.5-bin.zip
+.................................................................................................
+Unzipping /root/.gradle/wrapper/dists/gradle-6.5-bin/6nifqtx7604sqp1q6g8wikw7p/gradle-6.5-bin.zip to /root/.gradle/wrapper/dists/gradle-6.5-bin/6nifqtx7604sqp1q6g8wikw7p
+Set executable permissions for: /root/.gradle/wrapper/dists/gradle-6.5-bin/6nifqtx7604sqp1q6g8wikw7p/gradle-6.5/bin/gradle
+
+Welcome to Gradle 6.5!
+
+Here are the highlights of this release:
+ - Experimental file-system watching
+ - Improved version ordering
+ - New samples
+
+For more details see https://docs.gradle.org/6.5/release-notes.html
+
+Starting a Gradle Daemon (subsequent builds will be faster)
+File /root/.android/repositories.cfg could not be loaded.
+Checking the license for package SDK Patch Applier v4 in /usr/local/android-sdk/licenses
+License for package SDK Patch Applier v4 accepted.
+Preparing "Install SDK Patch Applier v4 (revision: 1)".
+"Install SDK Patch Applier v4 (revision: 1)" ready.
+Installing SDK Patch Applier v4 in /usr/local/android-sdk/patcher/v4
+"Install SDK Patch Applier v4 (revision: 1)" complete.
+"Install SDK Patch Applier v4 (revision: 1)" finished.
+Checking the license for package Android SDK Platform-Tools in /usr/local/android-sdk/licenses
+License for package Android SDK Platform-Tools accepted.
+Preparing "Install Android SDK Platform-Tools (revision: 30.0.5)".
+"Install Android SDK Platform-Tools (revision: 30.0.5)" ready.
+Installing Android SDK Platform-Tools in /usr/local/android-sdk/platform-tools
+"Install Android SDK Platform-Tools (revision: 30.0.5)" complete.
+"Install Android SDK Platform-Tools (revision: 30.0.5)" finished.
+Checking the license for package Android Emulator in /usr/local/android-sdk/licenses
+License for package Android Emulator accepted.
+Preparing "Install Android Emulator (revision: 30.3.5)".
+"Install Android Emulator (revision: 30.3.5)" ready.
+Installing Android Emulator in /usr/local/android-sdk/emulator
+"Install Android Emulator (revision: 30.3.5)" complete.
+"Install Android Emulator (revision: 30.3.5)" finished.
+Checking the license for package Android SDK Tools in /usr/local/android-sdk/licenses
+License for package Android SDK Tools accepted.
+Preparing "Install Android SDK Tools (revision: 26.1.1)".
+"Install Android SDK Tools (revision: 26.1.1)" ready.
+Installing Android SDK Tools in /usr/local/android-sdk/tools
+"Install Android SDK Tools (revision: 26.1.1)" complete.
+"Install Android SDK Tools (revision: 26.1.1)" finished.
+Checking the license for package Android SDK Build-Tools 29.0.2 in /usr/local/android-sdk/licenses
+License for package Android SDK Build-Tools 29.0.2 accepted.
+Preparing "Install Android SDK Build-Tools 29.0.2 (revision: 29.0.2)".
+"Install Android SDK Build-Tools 29.0.2 (revision: 29.0.2)" ready.
+Installing Android SDK Build-Tools 29.0.2 in /usr/local/android-sdk/build-tools/29.0.2
+"Install Android SDK Build-Tools 29.0.2 (revision: 29.0.2)" complete.
+"Install Android SDK Build-Tools 29.0.2 (revision: 29.0.2)" finished.
+Checking the license for package Android SDK Platform 29 in /usr/local/android-sdk/licenses
+License for package Android SDK Platform 29 accepted.
+Preparing "Install Android SDK Platform 29 (revision: 5)".
+"Install Android SDK Platform 29 (revision: 5)" ready.
+Installing Android SDK Platform 29 in /usr/local/android-sdk/platforms/android-29
+"Install Android SDK Platform 29 (revision: 5)" complete.
+"Install Android SDK Platform 29 (revision: 5)" finished.
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:compileDebugAidl NO-SOURCE
+> Task :app:compileDebugRenderscript NO-SOURCE
+> Task :app:generateDebugBuildConfig
+> Task :app:checkDebugAarMetadata
+> Task :app:generateDebugResValues
+> Task :app:generateDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:javaPreCompileDebug
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets
+> Task :app:compressDebugAssets
+> Task :app:processDebugJavaRes NO-SOURCE
+> Task :app:checkDebugDuplicateClasses
+> Task :app:mergeDebugResources
+> Task :app:desugarDebugFileDependencies
+> Task :app:mergeLibDexDebug
+> Task :app:mergeDebugJniLibFolders
+> Task :app:validateSigningDebug
+> Task :app:processDebugManifestForPackage
+> Task :app:mergeDebugNativeLibs
+> Task :app:mergeExtDexDebug
+> Task :app:processDebugResources
+> Task :app:compileDebugKotlin
+> Task :app:compileDebugJavaWithJavac
+> Task :app:compileDebugSources
+> Task :app:dexBuilderDebug
+> Task :app:stripDebugDebugSymbols NO-SOURCE
+> Task :app:mergeProjectDexDebug
+> Task :app:mergeDebugJavaResource
+> Task :app:packageDebug
+> Task :app:assembleDebug
+
+BUILD SUCCESSFUL in 2m 18s
+27 actionable tasks: 27 executed
+sha256:9785a4d8543b1f6b7154c353d290deef3ee0cce2b6aebc80e1a0547ea62fb2fb
+[Current build status] check if current [SUCCESS] is worse or equals then [FAILURE] and better or equals then [UNSTABLE]
+Run condition [Current build status] preventing perform for step [Execute shell]
+Triggering a new build of run_unit_tests
+Triggering a new build of run_automation_tests
+Finished: SUCCESS

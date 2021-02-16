@@ -1,0 +1,22 @@
+- job:
+    name: build_job
+    description: Build job that checks out the source code of the app and runs the Gradle build to produce the app's final .apk.
+    project-type: freestyle
+    scm:
+    - git:
+        url: https://github.com/eddyfrank/ci-challenge_hudson-pierce.git
+        branches:
+            - main
+    builders:
+        - shell:
+            bash scripts/build.sh
+        - conditional-step:
+            condition-kind: current-status
+            condition-worst: FAILURE
+            condition-best: UNSTABLE
+            steps:
+                - shell: bash scripts/cleanup.sh
+        - trigger-builds:
+            - project: 
+                - "run_unit_tests"
+                - "run_automation_tests"

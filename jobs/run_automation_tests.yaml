@@ -1,0 +1,17 @@
+- job:
+    name: run_automation_tests
+    description: Job that runs automation tests on the Demo App.
+    project-type: freestyle
+    scm:
+    - git:
+        url: https://github.com/eddyfrank/ci-challenge_hudson-pierce.git
+        branches:
+            - main
+    builders:
+        - shell:
+            bash scripts/run_automation_tests.sh
+        - shell:
+            bash scripts/cleanup.sh
+    publishers:
+        - junit:
+            results: appium_test_results.xml

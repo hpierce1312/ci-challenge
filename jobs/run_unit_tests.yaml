@@ -1,0 +1,21 @@
+- job:
+    name: run_unit_tests
+    description: Job that runs unit tests for the QA Demo App.
+    project-type: freestyle
+    scm:
+    - git:
+        url: https://github.com/eddyfrank/ci-challenge_hudson-pierce.git
+        branches:
+            - main
+    builders:
+        - shell:
+            bash scripts/run_unit_tests.sh
+        - conditional-step:
+            condition-kind: current-status
+            condition-worst: FAILURE
+            condition-best: UNSTABLE
+            steps:
+                - shell: bash scripts/cleanup.sh
+    publishers:
+        - junit:
+            results: test-results/**/TEST*.xml
